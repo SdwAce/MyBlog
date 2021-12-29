@@ -37,6 +37,10 @@ public class AuthController {
         }
         return new ResponseEntity<>("User has already been registered!",HttpStatus.BAD_REQUEST);
     }
+    @PostMapping("/login")
+    public AuthenticationResponse login(@RequestBody AuthRequest loginRequest) {
+        return loginService.login(loginRequest);
+    }
 
 //    @PostMapping("/login")
 //    public ResponseEntity<String> login(HttpServletRequest request) throws IOException {
@@ -65,8 +69,5 @@ public class AuthController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //
 //    }
-    @PostMapping("/login")
-    public AuthenticationResponse login(@RequestBody AuthRequest loginRequest) {
-        return loginService.login(loginRequest);
-    }
+
 }
