@@ -8,12 +8,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collections;
 
 @RestController
 @RequestMapping("/myblog/auth")
@@ -36,6 +39,17 @@ public class AuthController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
         }
         return new ResponseEntity<>("User has already been registered!",HttpStatus.BAD_REQUEST);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody AuthRequest loginRequest, HttpServletResponse response) {
+        try {
+            AuthenticationResponse authenticationResponse = loginService.login(loginRequest);
+            response.addHeader("Authorization", authenticationResponse.getAuthenticationToken());
+            return ResponseEntity.ok(authenticationResponse);
+        }catch (AuthenticationException e) {
+            return new ResponseEntity<>(Collections.singletonMap("AuthenticationException",
+                    e.getLocalizedMessage()), HttpStatus.UNAUTHORIZED);
+        }
     }
 
 //    @PostMapping("/login")
@@ -65,8 +79,5 @@ public class AuthController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //
 //    }
-    @PostMapping("/login")
-    public AuthenticationResponse login(@RequestBody AuthRequest loginRequest) {
-        return loginService.login(loginRequest);
-    }
+
 }

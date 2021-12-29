@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,7 +22,7 @@ public class LoginService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtUtil jwtUtil;
-    public AuthenticationResponse login(AuthRequest loginRequest) {
+    public AuthenticationResponse login(AuthRequest loginRequest) throws AuthenticationException{
         //authenticate user and store in SecurityContext
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
                 loginRequest.getPassword()));
@@ -29,6 +30,7 @@ public class LoginService {
         //generate JWT token after success authentication
         String authenticationToken = jwtUtil.createToken(authenticate);
         return new AuthenticationResponse(authenticationToken, loginRequest.getUsername());
+
     }
 
     public Optional<User> getCurrentUser() {

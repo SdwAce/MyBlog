@@ -2,6 +2,7 @@ package com.adobe.blogengine.Model;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.persistence.*;
@@ -20,9 +21,10 @@ public class Post {
     private static final int min_len = 5;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @Column(columnDefinition = "CHAR(32)")
+    private String id;
 
     @Column(nullable = false)
     @Size(min = min_len, message = "Title must be at least " + min_len + " characters long")
@@ -46,11 +48,11 @@ public class Post {
     @Column(name = "create_date", updatable = false,nullable = false)
     private Date createDate;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -2,6 +2,7 @@ package com.adobe.blogengine.Model;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -13,8 +14,10 @@ import java.util.Date;
 @Table(name = "comments")
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @Column(columnDefinition = "CHAR(32)")
+    private String id;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     @NotEmpty(message = "Comment cannot be empty!")
@@ -22,12 +25,12 @@ public class Comment {
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "author",  nullable = false)
+    @JoinColumn(nullable = false)
     private BlogUser author;
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "post", nullable = false)
+    @JoinColumn(nullable = false)
     private Post post;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -35,11 +38,11 @@ public class Comment {
     @Column(name = "create_date", updatable = false, nullable = false)
     private Date createDate;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

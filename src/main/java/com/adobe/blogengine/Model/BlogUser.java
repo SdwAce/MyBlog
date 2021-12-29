@@ -2,6 +2,7 @@ package com.adobe.blogengine.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -15,8 +16,10 @@ public class BlogUser {
 
     private static final int min_pwd_length = 8;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @Column(columnDefinition = "CHAR(32)")
+    private String id;
 
     @Column(nullable = false, unique = true)
     @NotEmpty(message = "Please enter username")
@@ -31,11 +34,11 @@ public class BlogUser {
     @Column
     private Collection<Post> posts;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
