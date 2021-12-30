@@ -1,6 +1,7 @@
 package com.adobe.blogengine.Service;
 
 import com.adobe.blogengine.DTO.AuthRequest;
+import com.adobe.blogengine.DTO.AuthResponse;
 import com.adobe.blogengine.Security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,14 +23,14 @@ public class LoginService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtUtil jwtUtil;
-    public AuthenticationResponse login(AuthRequest loginRequest) throws AuthenticationException{
+    public AuthResponse login(AuthRequest loginRequest) throws AuthenticationException{
         //authenticate user and store in SecurityContext
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         //generate JWT token after success authentication
         String authenticationToken = jwtUtil.createToken(authenticate);
-        return new AuthenticationResponse(authenticationToken, loginRequest.getUsername());
+        return new AuthResponse(authenticationToken, loginRequest.getUsername());
 
     }
 

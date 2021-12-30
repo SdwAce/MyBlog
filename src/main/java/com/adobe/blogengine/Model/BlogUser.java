@@ -13,7 +13,6 @@ import java.util.Collection;
 @Entity
 @Table(name="users",indexes = @Index(name="username_index",columnList = "username"))
 public class BlogUser {
-
     private static final int min_pwd_length = 8;
     @Id
     @GeneratedValue(generator = "uuid")
@@ -34,35 +33,5 @@ public class BlogUser {
     @Column
     private Collection<Post> posts;
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Collection<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Collection<Post> posts) {
-        this.posts = posts;
-    }
 }

@@ -27,8 +27,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         //wrap our user to the user object of spring security, pass in a based authority called "ROLE_USER"
         return new User(user.getUsername(),
                 user.getPassword(),
-                true, true, true, true,
-                getAuthorities("ROLE_USER"));
+                true, true, true, true,getAuthorities("ROLE_USER")
+                );
     }
 
     //create a simple GrantedAuthority object with "ROLE_USER"

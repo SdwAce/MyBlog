@@ -22,17 +22,22 @@ public class JwtFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String jwt = getJwt(request);//retrieve JWT from request
-        if (StringUtils.hasText(jwt) && jwtUtil.validateToken(jwt)){ //if validated, load user information
-            jwtUtil.getUserName(jwt);
-            String username = jwtUtil.getUserName(jwt);
+        try {
+            String jwt = getJwt(request);//retrieve JWT from request
+            if (jwt != null && jwtUtil.validateToken(jwt)) { //if validated, load user information
+                jwtUtil.getUserName(jwt);
+                String username = jwtUtil.getUserName(jwt);
 
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails,
-                    null, userDetails.getAuthorities());
-            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails,
+                        null, userDetails.getAuthorities());
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
+        }catch (Exception e) {
+            //logger.error("Cannot set user authentication: {}", e);
+            throw e;
         }
         //save to filter chain
         filterChain.doFilter(request,response);
@@ -45,6 +50,6 @@ public class JwtFilter extends OncePerRequestFilter {
             //System.err.println("mdzz");
             return bearerToken.substring(7);
         }
-        return bearerToken;
+        return null;
     }
 }

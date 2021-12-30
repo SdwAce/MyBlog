@@ -1,24 +1,20 @@
 package com.adobe.blogengine.Controller;
 
 import com.adobe.blogengine.DTO.AuthRequest;
-import com.adobe.blogengine.Service.AuthenticationResponse;
+import com.adobe.blogengine.DTO.AuthResponse;
 import com.adobe.blogengine.Service.LoginService;
 import com.adobe.blogengine.Service.RegisterService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Collections;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/myblog/auth")
 
 public class AuthController {
@@ -43,8 +39,8 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest loginRequest, HttpServletResponse response) {
         try {
-            AuthenticationResponse authenticationResponse = loginService.login(loginRequest);
-            response.addHeader("Authorization", authenticationResponse.getAuthenticationToken());
+            AuthResponse authenticationResponse = loginService.login(loginRequest);
+//            response.addHeader("Authorization", authenticationResponse.getAuthenticationToken());
             return ResponseEntity.ok(authenticationResponse);
         }catch (AuthenticationException e) {
             return new ResponseEntity<>(Collections.singletonMap("AuthenticationException",

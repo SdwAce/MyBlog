@@ -28,6 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Bean
+    public JwtFilter jwtFilter() {
+        return new JwtFilter();
+    }
+
     //creates a bean for the authenticationmanager
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
     @Override
@@ -35,23 +40,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    @Bean
-    public JwtFilter jwtFilter() {
-        return new JwtFilter();
+    //autowire authentication manager for handling JSON based authentication
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
-    @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("*");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
+
+
+//    @Bean
+//    public CorsFilter corsFilter() {
+//        UrlBasedCorsConfigurationSource source =
+//                new UrlBasedCorsConfigurationSource();
+//        CorsConfiguration config = new CorsConfiguration();
+//        config.setAllowCredentials(true);
+//        config.addAllowedOrigin("*");
+//        config.addAllowedHeader("*");
+//        config.addAllowedMethod("*");
+//        config.setAllowedOrigins(Collections.singletonList("*"));
+//        source.registerCorsConfiguration("/**", config);
+//        return new CorsFilter(source);
+//    }
 
 
     @Override
@@ -94,10 +103,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    //autowire authentication manager for handling JSON based authentication
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-    }
+
 
 }
