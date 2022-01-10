@@ -20,7 +20,6 @@ Server Build      | Maven
 
 ### Backend
 - Go to your project folder from your terminal
-- cd blog-backend
 - Run: `mvnw spring-boot:run`
 
 ### Frontend
