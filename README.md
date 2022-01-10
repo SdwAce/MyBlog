@@ -19,8 +19,9 @@ Server Build      | Maven
 
 
 ### Backend
-- Go to your project folder from your terminal
-- Run: `mvnw spring-boot:run`
+- Go to your project root folder from your terminal
+- Run: `.\mvnw spring-boot:run`
+- <img src="/images/backend-run.jpg" width="90%"></img>
 
 ### Frontend
 - Go to your project folder from your terminal
