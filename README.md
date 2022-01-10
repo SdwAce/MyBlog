@@ -29,6 +29,7 @@ Server Build      | Maven
 - Run: `npm install`
 - After install, run: `npm run start`
 - It will open your browser(http://localhost:3000)
+-  <img src="/images/frontend-run.jpg" width="90%"></img>
 
 
 
