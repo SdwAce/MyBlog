@@ -60,6 +60,7 @@ Server Build      | Maven
 -  https://academind.com/tutorials/reactjs-pagination (help me implement pagination)
 -  https://react-bootstrap.github.io/components/alerts(the official website of react-bootstrap)
 -  https://github.com/SaiUpadhyayula/spring-ng-blog (borrow some structure design of the backend code)
+-  https://www.readingteen.net/wp-content/uploads/2020/07/blog.jpg (blog image on the personal blog page)
 
 
 
