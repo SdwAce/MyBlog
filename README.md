@@ -31,6 +31,9 @@ Server Build      | Maven
 - It will open your browser(http://localhost:3000)
 -  <img src="/images/frontend-run.jpg" width="90%"></img>
 
+### Database
+-The database is maintained in the AWS RDS cloud, I will keep the service open so you should be fine with it.
+
 
 
 ## Screenshots
