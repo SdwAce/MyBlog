@@ -1,5 +1,6 @@
 package com.adobe.blogengine.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -35,11 +36,13 @@ public class Post {
     private String body;
 
     @NotNull
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user", nullable = false)
     private BlogUser user;
 
     @Column
+    @JsonIgnore
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Collection<Comment> comments;
 

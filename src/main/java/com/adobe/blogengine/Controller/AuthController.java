@@ -30,9 +30,8 @@ public class AuthController {
             if (registerService.register(registerRequest)) {
                 return ResponseEntity.ok("User successfully registered!");
             }
-
         } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>("User has already been registered!",HttpStatus.BAD_REQUEST);
     }
@@ -40,11 +39,9 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody AuthRequest loginRequest, HttpServletResponse response) {
         try {
             AuthResponse authenticationResponse = loginService.login(loginRequest);
-//            response.addHeader("Authorization", authenticationResponse.getAuthenticationToken());
             return ResponseEntity.ok(authenticationResponse);
         }catch (AuthenticationException e) {
-            return new ResponseEntity<>(Collections.singletonMap("AuthenticationException",
-                    e.getLocalizedMessage()), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Invalid username or password!", HttpStatus.UNAUTHORIZED);
         }
     }
 

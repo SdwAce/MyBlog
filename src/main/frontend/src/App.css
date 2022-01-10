@@ -1,7 +1,6 @@
-.App {
+.App{
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,16 +12,7 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
 
 .App-link {
   color: #61dafb;
@@ -43,33 +33,11 @@ label {
   margin-bottom: 10px;
 }
 
-.card-container {
-  max-width: 350px;
-}
-
-.container-lg{
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
-.card {
-  max-width: 350px;
-  background-color: #f7f7f7;
-  padding: 0px 0px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
 
 .profile-img-card {
-  width: 96px;
-  height: 96px;
-  margin: 15px auto 5px;
+  width: 30%;
+  height: 30%;
+  margin: 5px auto 5px;
   display: block;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -77,9 +45,166 @@ label {
 }
 
 .form-group.button-group{
-  margin-top: 20px;
+  margin-top: 5%;
 }
 
-.alert-danger{
+
+.card.post{
   margin-top: 20px;
+  min-width: 60%;
 }
+
+.alert{
+  margin-top: 2%;
+}
+
+.navbar-brand{
+  font-size : xx-large
+}
+.navbar{
+  min-height: 70px;
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.gradient-custom-1 {
+  /* fallback for old browsers */
+  background: hsla(238, 100%, 71%, 1);
+
+  background: linear-gradient(90deg, hsla(238, 100%, 71%, 1) 0%, hsla(295, 100%, 84%, 1) 100%);
+
+  background: -moz-linear-gradient(90deg, hsla(238, 100%, 71%, 1) 0%, hsla(295, 100%, 84%, 1) 100%);
+
+  background: -webkit-linear-gradient(90deg, hsla(238, 100%, 71%, 1) 0%, hsla(295, 100%, 84%, 1) 100%);
+
+}
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+
+.loginText {
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.bg {
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-home{
+  padding-top: 2.5%;
+}
+.text-danger{
+  margin-top: 2%;
+}
+
+.active {
+  color: royalblue !important;
+}
+
+.inactive {
+  color: black !important;
+}
+.navbar-nav {
+  padding-top: 1%;
+}
+.nav-link {
+  font-size: 120%;
+}
+.nav-link:hover {
+  cursor: pointer;
+  color: royalblue !important;
+}
+.form-control.textarea{
+  min-height: 100px;
+}
+
+#brand {
+  font-size: xx-large;
+}
+
+.list-group{
+  padding: 3% 0;
+  align-items: center;
+}
+ul.nav.nav-tabs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationItem {
+  background: #fff;
+  border: 2px solid #666;
+  padding: 10px 15px;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  position: relative;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.paginationItem span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prev, .next {
+  background: #fff;
+  border: none;
+  padding: 10px;
+  color: orange;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.paginationItem.active {
+  border: 1px solid #888;
+  color: #888;
+  pointer-events: none;
+}
+
+.prev.disabled,
+.next.disabled {
+  pointer-events: none;
+  box-shadow: none;
+  color: #999;
+}
+
+
+
+
+

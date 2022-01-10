@@ -2,13 +2,15 @@ package com.adobe.blogengine.DTO;
 
 import com.adobe.blogengine.Model.Comment;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CommentResponse {
     private String id;
     private String username;
     private String body;
-    private Date create_date;
+    private String create_date;
     private String postId;
     private String userId;
 
@@ -36,11 +38,11 @@ public class CommentResponse {
         this.body = body;
     }
 
-    public Date getCreate_date() {
+    public String getCreate_date() {
         return create_date;
     }
 
-    public void setCreate_date(Date create_date) {
+    public void setCreate_date(String create_date) {
         this.create_date = create_date;
     }
 
@@ -65,7 +67,9 @@ public class CommentResponse {
         commentResponse.setId(comment.getId());
         commentResponse.setUsername(comment.getAuthor().getUsername());
         commentResponse.setBody(comment.getBody());
-        commentResponse.setCreate_date(comment.getCreateDate());
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        String strDate = dateFormat.format(comment.getCreateDate());
+        commentResponse.setCreate_date(strDate);
         commentResponse.setPostId(comment.getPost().getId());
         commentResponse.setUserId(comment.getAuthor().getId());
         return commentResponse;

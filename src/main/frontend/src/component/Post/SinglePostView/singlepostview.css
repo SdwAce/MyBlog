@@ -1,0 +1,19 @@
+.single-post {
+    margin: 3%;
+    padding: 2% 3% 2%;
+    background-color: #b5a8a7
+}
+
+.single-post -body {
+    font-size: 1.3rem;
+    padding-bottom: 0;
+    text-align: justify;
+}
+
+.single-post -title {
+    font-size: 1.7rem;
+}
+.single-post -meta {
+    font-size: 0.7rem;
+    font-style: oblique;
+}

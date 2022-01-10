@@ -33,7 +33,7 @@ public class CommentController {
         }
     }
 
-    @PostMapping(value = "/add/{postId}")
+    @PostMapping(value = "/add")
     public ResponseEntity<CommentResponse> addComment(@RequestBody CommentRequest commentRequest){
         try {
             CommentResponse returnComment = commentService.addComment(commentRequest);

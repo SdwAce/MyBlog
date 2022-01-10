@@ -16,13 +16,19 @@ class AuthService{
         })
         .then(response => {
             if (response.data.authenticationToken){
+                JSON.stringify(response.data)
                 localStorage.setItem("user",JSON.stringify(response.data));
             }
             return response.data;
         });
     }
     getUser() {
-        return JSON.parse(localStorage.getItem('user'));;
+        const user = localStorage.getItem('user');
+        return user != undefined ? JSON.parse(user) : undefined;
+    }
+    getToken() {
+        // console.log(JSON.parse(localStorage.getItem('user')));
+        return "Bearer " + JSON.parse(localStorage.getItem('user')).authenticationToken.toString();
     }
 
     logout() {
