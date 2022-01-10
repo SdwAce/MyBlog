@@ -55,11 +55,11 @@ Server Build      | Maven
 
 
 ## Credits (The sources I lend help from)
--https://www.bezkoder.com/react-jwt-auth/#Register_Page (help me implement spring security and build react validation forms)
--https://www.toptal.com/spring/spring-security-tutorial
--https://academind.com/tutorials/reactjs-pagination (help me implement pagination)
--https://react-bootstrap.github.io/components/alerts(the official website of react-bootstrap)
--https://github.com/SaiUpadhyayula/spring-ng-blog (borrow some structure design of the backend code)
+-  https://www.bezkoder.com/react-jwt-auth/#Register_Page (help me implement spring security and build react validation forms)
+-  https://www.toptal.com/spring/spring-security-tutorial
+-  https://academind.com/tutorials/reactjs-pagination (help me implement pagination)
+-  https://react-bootstrap.github.io/components/alerts(the official website of react-bootstrap)
+-  https://github.com/SaiUpadhyayula/spring-ng-blog (borrow some structure design of the backend code)
 
 
 
