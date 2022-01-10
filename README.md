@@ -61,7 +61,7 @@ Server Build      | Maven
 -  https://react-bootstrap.github.io/components/alerts(the official website of react-bootstrap)
 -  https://github.com/SaiUpadhyayula/spring-ng-blog (borrow some structure design of the backend code)
 -  https://www.readingteen.net/wp-content/uploads/2020/07/blog.jpg (blog image on the personal blog page)
--  https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp( background image of the whole application)
+-  https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp   (background image of the whole application)
 
 
 
