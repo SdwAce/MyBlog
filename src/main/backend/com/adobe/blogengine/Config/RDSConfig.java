@@ -19,8 +19,6 @@ public class RDSConfig {
     private static final String password = "admin123";
     public static final String URL = "jdbc:mysql://" + instance + ":" +port + "/" + db_name + "?" +
             "user=" + user_name + "&" + "password=" + password;
-    private static DataSource dataSource = null;
-
 
     @Bean
     public DataSource getDataSource(){
@@ -29,7 +27,7 @@ public class RDSConfig {
         config.setJdbcUrl(URL);
         config.setMinimumIdle(1);
         config.setMaximumPoolSize(5);
-        dataSource = new HikariDataSource(config);
+        DataSource dataSource = new HikariDataSource(config);
         config.setIdleTimeout(30000);
         return dataSource;
     }
