@@ -39,7 +39,7 @@ Server Build      | Maven
 
 ## Screenshots
 
-### Home (you can view all public posts but cannot comment before login, to read full text of a blog, click on it)
+### Home (you can view all public posts but cannot comment before login, to read full text and comment on a blog, click on it)
 <img src="/images/home.jpg" width="90%"></img>
 
 ### Login
