@@ -21,7 +21,7 @@ Server Build      | Maven
 ### Backend
 - Go to your project root folder from your terminal
 - Run: `.\mvnw spring-boot:run`
-- if you got any error, please clean, install the maven
+- if you got any error, please do mvn clean install
 - <img src="/images/backend-run.jpg" width="90%"></img>
 
 ### Frontend
