@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PostList from "../Post/PostList/postlist";
 import { Card} from "react-bootstrap";
 
+//component for home page
 export default class Home extends Component{
 
     render() {

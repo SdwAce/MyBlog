@@ -24,6 +24,7 @@ public class AuthController {
     private LoginService loginService;
 
 
+    //register controller
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody AuthRequest registerRequest) {
         try {
@@ -35,6 +36,8 @@ public class AuthController {
         }
         return new ResponseEntity<>("User has already been registered!",HttpStatus.BAD_REQUEST);
     }
+
+    //login controller
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest loginRequest, HttpServletResponse response) {
         try {
@@ -45,6 +48,7 @@ public class AuthController {
         }
     }
 
+    //old login version using http session
 //    @PostMapping("/login")
 //    public ResponseEntity<String> login(HttpServletRequest request) throws IOException {
 //        ObjectMapper mapper = new ObjectMapper();

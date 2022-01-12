@@ -1,7 +1,7 @@
 import axios from "axios";
 const API_URL = "http://localhost:8080/myblog/auth/";
 
-
+//apis for authentication service
 class AuthService{
     register(username, password) {
         return axios.post(API_URL + "register", {

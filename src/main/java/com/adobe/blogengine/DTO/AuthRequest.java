@@ -1,5 +1,6 @@
 package com.adobe.blogengine.DTO;
 
+// DTO for any authentication request
 public class AuthRequest {
     private String username;
     private String password;

@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @Data
 @Entity
-@Table(name="users",indexes = @Index(name="username_index",columnList = "username"))
+@Table(name="users",indexes = @Index(name="username_index",columnList = "username")) //create index for faster searching
 public class BlogUser {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -29,6 +29,5 @@ public class BlogUser {
     @OneToMany(mappedBy = "user")
     @Column
     private Collection<Post> posts;
-
 
 }

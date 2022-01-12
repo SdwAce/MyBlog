@@ -1,4 +1,4 @@
-import React, { Fragment }  from 'react';
+import React from 'react';
 import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 import Input from "react-validation/build/input";
@@ -28,7 +28,7 @@ const checkTitle = value => {
     }
 };
 
-
+// component for adding post
 export default class Addpost extends React.Component {
     constructor(props) {
         super(props);

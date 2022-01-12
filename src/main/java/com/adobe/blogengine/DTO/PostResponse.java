@@ -3,6 +3,7 @@ import com.adobe.blogengine.Model.Comment;
 
 import java.util.Collection;
 
+//dto for any response about posts
 public class PostResponse {
     private String id;
     private String title;

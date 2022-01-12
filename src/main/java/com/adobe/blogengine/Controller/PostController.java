@@ -16,6 +16,7 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    //show all public posts
     @GetMapping("/showall")
     public ResponseEntity<?> getAllPost(){
         try{
@@ -26,6 +27,7 @@ public class PostController {
 
     }
 
+    //show personal post of a single user
     @PostMapping("/showbyuser")
     public ResponseEntity<?> getAllPostByUser(@RequestBody PostRequest postDto){
         try{
@@ -36,6 +38,7 @@ public class PostController {
 
     }
 
+    //create post for user
     @PostMapping("/create")
     public ResponseEntity createPost(@RequestBody PostRequest postDto) {
         try{

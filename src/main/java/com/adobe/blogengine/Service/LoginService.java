@@ -21,14 +21,13 @@ import java.util.Optional;
 @Service
 public class LoginService {
     @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtUtil jwtUtil;
     @Autowired
     private UserRepository userRepository;
 
+    //login method
     public AuthResponse login(AuthRequest loginRequest) throws AuthenticationException{
         //authenticate user and store in SecurityContext
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
@@ -43,6 +42,7 @@ public class LoginService {
 
     }
 
+    //get current user stored in security context
     public Optional<User> getCurrentUser() {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.
                 getContext().getAuthentication().getPrincipal();

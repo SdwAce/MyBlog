@@ -7,6 +7,8 @@ import {Button, Card, FormGroup} from "react-bootstrap";
 import AuthService from "../../../service/auth-service";
 
 const cx = classNames.bind(styles);
+
+//component for the full text view of a single post and comments
 const SinglePostView = ({match}) => {
     const {post} = useLocation();
 

@@ -5,7 +5,7 @@ import {Alert} from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import Comment from "../Comments/Comment/comment";
 
-
+// component for anything that need pagination (comment list and post list)
 function Pagination({ data, pageLimit, dataLimit, isPost}) {
     const [pages, setPages] = useState(Math.ceil(data.length / dataLimit));
     useEffect(() => {

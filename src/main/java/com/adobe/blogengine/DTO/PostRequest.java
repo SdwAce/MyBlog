@@ -2,7 +2,8 @@ package com.adobe.blogengine.DTO;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+//dto for any request about posts
+@JsonIgnoreProperties(ignoreUnknown = true) //ignore unknown json properties
 public class PostRequest {
     private String userId;
     private String title;

@@ -1,10 +1,10 @@
 import React from "react";
-import Comment from "../Comment/comment";
 import styles from './commentlist.css';
 import classNames from 'classnames/bind';
 import Pagination from "../../Pagination/pagination";
 const cx = classNames.bind(styles);
 
+//component for comment lists
 const CommentList = ({comments}) => {
 
     return (

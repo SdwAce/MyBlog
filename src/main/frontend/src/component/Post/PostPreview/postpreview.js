@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-
+//comment for a post preview
 const PostPreview = ({ post }) => {
     if (post === undefined) {
         return null;

@@ -20,6 +20,8 @@ import java.util.stream.Collectors;
 public class CommentController {
     @Autowired
     private CommentService commentService;
+
+   //get comments of a single post based on postid
     @GetMapping("/get/{postId}")
     public ResponseEntity<Collection<CommentResponse>> getComments(@PathVariable String postId){
         Optional<Collection<Comment>> comments = commentService.findCommentsByPost(postId);
@@ -33,6 +35,7 @@ public class CommentController {
         }
     }
 
+    //add comment to a single post
     @PostMapping(value = "/add")
     public ResponseEntity<CommentResponse> addComment(@RequestBody CommentRequest commentRequest){
         try {

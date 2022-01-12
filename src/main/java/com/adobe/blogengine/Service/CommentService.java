@@ -27,10 +27,12 @@ public class CommentService {
     @Autowired
     private UserRepository userRepository;
 
+    //find comments based on the id of a single post
     public Optional<Collection<Comment>> findCommentsByPost(String id) {
         return commentRepository.findAllByPostId(id);
     }
 
+    //add a comment to the post
     public CommentResponse addComment(CommentRequest commentRequest) throws Exception {
         Optional<Post> post= postRepository.findById(commentRequest.getPostId());
         if (!post.isPresent()){
@@ -38,6 +40,7 @@ public class CommentService {
         }
         Comment comment = new Comment();
         comment.setBody(commentRequest.getBody());
+        //get the current log-in user
         User loggedInUser = loginService.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("User Not Found"));
         BlogUser user = userRepository.findByUsername(loggedInUser.getUsername()).orElseThrow(() ->
                 new UsernameNotFoundException("No user found with username " + loggedInUser.getUsername()));

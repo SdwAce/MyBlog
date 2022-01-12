@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import PostService from "../../../service/post-service";
 import Pagination from "../../Pagination/pagination";
 import AuthService from "../../../service/auth-service";

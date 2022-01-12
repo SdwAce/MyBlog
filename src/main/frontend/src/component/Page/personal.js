@@ -5,6 +5,7 @@ import {Tab, Tabs} from "react-bootstrap";
 import AddPost from "../Post/AddPost/addpost";
 import AuthService from "../../service/auth-service";
 
+//component for the personal blog space after login
 export default class Personal extends Component {
     render() {
         const username = AuthService.getUser().username.toString();

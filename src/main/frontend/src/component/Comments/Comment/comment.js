@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-
+// single comment component
 const Comment= ({ comment }) => {
     if (comment === undefined) {
         return null;

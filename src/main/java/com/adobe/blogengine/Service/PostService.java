@@ -29,19 +29,23 @@ public class PostService {
     @Autowired
     private LoginService loginService;
 
+
+    //get all public posts
     @Transactional
     public List<PostResponse> getAllPosts() throws Exception{
         List<Post> posts = postRepository.findAllByOrderByCreateDateDesc().get();
-        return posts.stream().map(e -> mapPostDto(e)).collect(Collectors.toList());
+        return posts.stream().map(e -> mapPostResponse(e)).collect(Collectors.toList());
     }
 
+    //get personal posts of a user
     @Transactional
     public List<PostResponse> getPostsByUser(PostRequest postDto){
         List<Post> posts = postRepository.findAllByUserIdOrderByCreateDateDesc(postDto.getUserId()).get();
-        return posts.stream().map(e -> mapPostDto(e)).collect(Collectors.toList());
+        return posts.stream().map(e -> mapPostResponse(e)).collect(Collectors.toList());
     }
 
-    private PostResponse mapPostDto(Post post) {
+    //helper method to map post to post response
+    private PostResponse mapPostResponse(Post post) {
         PostResponse response = new PostResponse();
         response.setId(post.getId());
         response.setTitle(post.getTitle());
@@ -54,14 +58,16 @@ public class PostService {
         return response;
     }
 
-
+    //create a post and save to db
     @Transactional
     public void createPost(PostRequest request) throws Exception{
         Post post = mapToPost(request);
         postRepository.save(post);
     }
 
-    private Post mapToPost(PostRequest request) throws Exception{
+
+    //helper method that maps a post request to  post object
+    private Post mapToPost(PostRequest request){
         Post post = new Post();
         post.setTitle(request.getTitle());
         post.setBody(request.getBody());

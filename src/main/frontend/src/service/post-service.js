@@ -4,7 +4,7 @@ import React from "react";
 
 const API_URL = "http://localhost:8080/myblog/post/";
 
-
+//apis for post service
 class PostService{
     getAllPosts() {
         return axios.get(API_URL + "showall").then(response => {

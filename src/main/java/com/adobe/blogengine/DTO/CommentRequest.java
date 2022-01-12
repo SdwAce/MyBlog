@@ -1,5 +1,6 @@
 package com.adobe.blogengine.DTO;
 
+//dto for any comment request
 public class CommentRequest {
     private String body;
     private String postId;

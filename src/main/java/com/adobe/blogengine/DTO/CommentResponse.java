@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+//dto for any comment response
 public class CommentResponse {
     private String id;
     private String username;
@@ -62,6 +63,7 @@ public class CommentResponse {
         this.userId = userId;
     }
 
+    //helper method to map a comment to comment dto
     public static CommentResponse mapCommentDTO(Comment comment){
         CommentResponse commentResponse = new CommentResponse();
         commentResponse.setId(comment.getId());

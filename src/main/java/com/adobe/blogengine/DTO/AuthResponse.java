@@ -4,6 +4,7 @@ package com.adobe.blogengine.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+// DTO for any authentication response
 @Data
 @AllArgsConstructor
 public class AuthResponse {

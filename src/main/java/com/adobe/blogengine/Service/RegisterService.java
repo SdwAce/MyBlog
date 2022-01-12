@@ -14,6 +14,7 @@ public class RegisterService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    //register user
     public boolean register(AuthRequest request)  {
         if (userRepository.findByUsername(request.getUsername()).isPresent()) {
             return false;
@@ -25,6 +26,7 @@ public class RegisterService {
         return true;
     }
 
+    //encode the password using the encoder
     private String encodePassword(String password) {
         return passwordEncoder.encode(password);
     }

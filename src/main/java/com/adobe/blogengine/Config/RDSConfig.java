@@ -20,9 +20,9 @@ public class RDSConfig {
     public static final String URL = "jdbc:mysql://" + instance + ":" +port + "/" + db_name + "?" +
             "user=" + user_name + "&" + "password=" + password;
 
+    //create Hikari connection pool and use it as data source to solve the issue of multi-threading and close issue for singleton
     @Bean
     public DataSource getDataSource(){
-        //create connection pool to solve the issue of multi-threading and close issue for singleton
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(URL);
         config.setMinimumIdle(1);

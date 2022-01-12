@@ -20,6 +20,7 @@ const required = value => {
     }
 };
 
+//component for both comment list and the form for adding comment
 export default class CommentForm extends Component {
     constructor(props) {
         super(props);
